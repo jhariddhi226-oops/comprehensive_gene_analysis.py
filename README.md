@@ -1,149 +1,118 @@
-# 🧬 DNA to Protein Analysis Using Python & Biopython
 
-A beginner-friendly bioinformatics project developed using **Python** and **Biopython** to analyze human gene sequences from FASTA files.
+# 🧬 Comprehensive Gene & Phylogenetic Analysis Pipeline
 
-This project demonstrates how biological sequence data can be processed computationally by performing DNA analysis, RNA transcription, protein translation, GC content calculation, and automated CSV report generation.
+An end-to-end bioinformatics pipeline built with **Python** and **Biopython** to process, align, analyze, and construct evolutionary trees for human gene sequences from FASTA files.
+
+This project demonstrates a complete computational biology workflow — bridging basic sequence statistics, Central Dogma modeling, homology searching, sequence alignment, and evolutionary phylogenetics into a single structured pipeline.
 
 ---
 
 ## 📌 Project Overview
 
-This workflow analyzes **Human BRCA1 (NM_007294.4)** and **BRCA2 (NM_000059.4)** gene sequences obtained from FASTA files.
+This workflow processes and analyzes **Human BRCA1** and **BRCA2** gene sequences from raw FASTA input files.
 
-The program automatically:
+The automated pipeline performs:
 
-- Reads FASTA sequences
-- Extracts sequence information
-- Transcribes DNA into RNA
-- Translates RNA into protein
-- Calculates GC content
-- Generates a structured CSV report
-
-  ## 📸 Project Workflow
-
-![Workflow](infographic.png)
+- **Sequence Parsing & Extraction**: Fast and memory-efficient sequence loading using Biopython.
+- **Nucleotide & Composition Stats**: Sequence length, base distribution, and precise GC content calculation.
+- **Central Dogma Modeling**: DNA transcription to RNA and full translation into Protein sequence.
+- **Homology Search**: Automated online querying via **NCBI BLAST** (`blastn`).
+- **Sequence Alignment**: Pairwise Global/Local alignments and Multiple Sequence Alignment (MSA).
+- **Phylogenetic Reconstruction**: Pairwise Distance Matrix creation and Neighbor-Joining (NJ) Evolutionary Tree generation.
+- **Structured Reporting**: Auto-generated CSV reports summarizing sequence properties.
 
 ---
 
-## 💻 Python Code
+## 📸 Workflow Architecture
+[ FASTA Input File ]
+                            |
+    +-----------------------+-----------------------+
+    |                                               |
+[ Basic Analysis ]                              [ Central Dogma ]
+• Sequence Length                               • DNA → RNA Transcription
+• Base Pair Counts                              • RNA → Protein Translation
+• GC Content (%)                                • Reading Frame Analysis
+|                                               |
++-----------------------+-----------------------+
+|
+[ Comparative Genomics ]
+• NCBI BLAST Search
+• Pairwise Alignment
+• Multiple Alignment (MSA)
+|
+[ Phylogenetic Reconstruction ]
+• Distance Matrix
+• Neighbour-Joining Tree
+|
+[ Automated CSV Export ]
 
-![Python Code](code.png)
 
 ---
 
-## 🖥️ Terminal Output
+## ✨ Core Features
 
-![Terminal Output](terminal.png)
+| Feature | Description |
+| :--- | :--- |
+| **FASTA Parsing** | Handles single and multi-record FASTA files efficiently with Biopython's `SeqIO`. |
+| **GC Content Calculation** | Computes nucleotide distribution and exact GC percentage. |
+| **Central Dogma Processing** | Transcribes DNA to RNA and translates nucleotide codons into amino acid sequences. |
+| **NCBI BLAST Querying** | Connects to NCBI web services (`blastn`) to fetch alignment scores and E-values. |
+| **Pairwise Alignment** | Global (Needleman-Wunsch) and Local (Smith-Waterman) sequence comparisons. |
+| **Multiple Sequence Alignment** | Aligns multiple target sequences using EBI ClustalOmega APIs / Matrix algorithms. |
+| **Phylogenetic Trees** | Calculates distance matrices and renders Neighbor-Joining (NJ) evolutionary trees. |
+| **Data Export** | Exports calculated metrics into structured `.csv` reports for downstream work. |
 
 ---
 
-## 📄 Generated CSV Report
+## 📊 Sample Results Summary
 
-![CSV Report](csv_output.png)
-
----
-
-## ✨ Features
-
-✅ FASTA File Reading (Biopython)
-
-✅ DNA Sequence Analysis
-
-✅ DNA → RNA Transcription
-
-✅ RNA → Protein Translation
-
-✅ Sequence Length Calculation
-
-✅ GC Content Analysis
-
-✅ Automated CSV Report Generation
+| Gene / Accession | Sequence Type | Length (bp) | GC Content (%) | Protein Length (aa) |
+| :--- | :---: | :---: | :---: | :---: |
+| **BRCA1** | Human DNA | 7,088 bp | 41.77% | 2,362 aa |
+| **BRCA2** | Human DNA | 11,954 bp | 36.18% | 3,984 aa |
 
 ---
 
 ## 🛠 Tech Stack
 
-- Python
-- Biopython
-- CSV Module
+- **Primary Language:** Python 3.x
+- **Core Bio-Libraries:** `biopython` (`SeqIO`, `PairwiseAligner`, `NCBIWWW`, `NCBIXML`, `Phylo`)
+- **System & Utility Modules:** `csv`, `os`, `requests`, `pathlib`
 
 ---
 
-## 📂 Input
+## ⚙️ Installation & Usage
 
-Human FASTA sequences:
-
-- BRCA1 (NM_007294.4)
-- BRCA2 (NM_000059.4)
-
----
-
-## 📊 Results
-
-| Gene | Sequence Length | GC Content |
-|------|----------------:|-----------:|
-| BRCA1 | 7,088 bp | 41.77% |
-| BRCA2 | 11,954 bp | 36.18% |
-
----
-
-## 📁 Output
-
-The program generates:
-
-- DNA Analysis
-- RNA Transcription
-- Protein Translation
-- GC Content Calculation
-- CSV Report (`dna_report.csv`)
-
----
-
-## ▶️ How to Run
-
-Install Biopython
-
+### 1. Clone the Repository
 ```bash
-pip install biopython
-```
+git clone [https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git](https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git)
+cd YOUR_REPOSITORY_NAME
+2. Install Required Packages
+Bash
+pip install biopython requests
+3. Run the Main Pipeline
+Bash
+python comprehensive_gene_analysis.py
+📁 Repository Structure
+├── Homo sapiens BRCA1 & 2 DNA.FASTA   # Target input sequence file
+├── comprehensive_gene_analysis.py      # Main pipeline script
+├── dna_report.csv                      # Output summary report (Auto-generated)
+├── README.md                           # Project documentation
+└── requirements.txt                    # Python dependencies
+🚀 Future Roadmap
+[ ] Interactive Web Dashboard using Streamlit
 
-Run the Python script
+[ ] Mutation & Single Nucleotide Polymorphism (SNP) variant caller
 
-```bash
-python analysis.py
-```
+[ ] Open Reading Frame (ORF) finder with frame visualization
 
----
+[ ] High-resolution tree rendering with Matplotlib / Toytree
 
-## 📷 Sample Output
-
-- DNA Sequence Information
-- RNA Sequence
-- Protein Sequence
-- GC Content
-- CSV Report
-
----
-
-## 🚀 Future Improvements
-
-- ORF Finder
-- Mutation Analysis
-- Restriction Enzyme Analysis
-- Primer Design
-- GUI Application (Tkinter)
-- Data Visualization
-
----
-
-## 👩‍💻 Author
-
-**Riddhi Jha**
+👩‍💻 Author
+Riddhi Jha
 
 M.Sc. Biotechnology Student
 
-Learning Python • Bioinformatics • Computational Biology
+Focused on Python • Bioinformatics • Computational Biology
 
----
-
-⭐ If you found this project useful, feel free to Star this repository!
+⭐ If you found this project helpful or inspiring, please consider giving it a star on GitHub!
