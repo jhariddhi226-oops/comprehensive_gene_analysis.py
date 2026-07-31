@@ -145,12 +145,10 @@ M.Sc. Biotechnology Student
 
 Focused on Python • Bioinformatics • Computational Biology
 
-⭐ If you found this project helpful or inspiring, please consider giving it a star on GitHub!
-
-## 🏅 Achievement Badge
+# 🏅 Achievement Badge
 
 - Python for Data Science (IBM)
   - 🔗 Badge: https://www.credly.com/badges/a6d0e9de-1874-42e8-89df-6436a76be329/linked_in_profile
 
 ---
-
+⭐ If you found this project helpful or inspiring, please consider giving it a star on GitHub!
